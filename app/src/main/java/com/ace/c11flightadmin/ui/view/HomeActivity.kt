@@ -42,10 +42,8 @@ class HomeActivity : AppCompatActivity() {
     private fun isLoginInfoValid() {
         viewModel.getLoginStatus().observe(this) {
             if (it) {
-//                binding.hi.visibility = View.VISIBLE
-//                binding.tvUsername.visibility = View.VISIBLE
                 binding.messageLogin.visibility = View.GONE
-                Toast.makeText(this, "Login Verified", Toast.LENGTH_SHORT).show()
+                binding.flFragment.visibility = View.VISIBLE
             }
         }
     }
@@ -86,7 +84,12 @@ class HomeActivity : AppCompatActivity() {
         setCurrentFragment(usersFragment)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.users -> setCurrentFragment(usersFragment)
+                R.id.users -> {
+                    setCurrentFragment(usersFragment)
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
                 R.id.tickets -> setCurrentFragment(ticketFragment)
             }
             true
