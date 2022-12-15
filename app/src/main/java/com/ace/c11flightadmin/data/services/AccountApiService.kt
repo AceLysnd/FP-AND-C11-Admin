@@ -30,6 +30,11 @@ interface AccountApiService {
         @Path("id") id: Int,
     ): AccountResponse
 
+    @DELETE("users/{id}")
+    suspend fun deleteUserById(
+        @Path("id") id: Int,
+    ): AccountResponse
+
     companion object{
 
         @JvmStatic

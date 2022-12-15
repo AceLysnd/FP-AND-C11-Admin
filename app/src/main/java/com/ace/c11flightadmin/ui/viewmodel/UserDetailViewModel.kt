@@ -42,4 +42,22 @@ class UserDetailViewModel  : ViewModel() {
             }
         }
     }
+    fun deleteUser() {
+        loadingState.postValue(true)
+        errorState.postValue(Pair(false, null))
+        viewModelScope.launch {
+            try {
+                val data = apiService.deleteUserById(USER_ID)
+                viewModelScope.launch {
+                    loadingState.postValue(false)
+                    errorState.postValue(Pair(false,null))
+                }
+            } catch (e: Exception) {
+                viewModelScope.launch {
+                    loadingState.postValue(false)
+                    errorState.postValue(Pair(true,e))
+                }
+            }
+        }
+    }
 }

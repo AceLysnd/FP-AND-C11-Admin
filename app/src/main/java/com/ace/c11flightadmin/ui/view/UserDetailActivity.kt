@@ -2,7 +2,9 @@ package com.ace.c11flightadmin.ui.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.ace.c11flightadmin.R
@@ -72,10 +74,41 @@ class UserDetailActivity : AppCompatActivity() {
 
     private fun setOnclickListeners() {
         binding.btnDelete.setOnClickListener{
+            createDialog()
+        }
+    }
+
+    private fun createDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Delete User")
+        builder.setMessage("Delete this user?")
+//builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+
+            viewModel.deleteUser()
+            viewModel.loadingState.observe(this) { isLoading ->
+                binding.pbPost.isVisible = isLoading
+            }
+
+            viewModel.errorState.observe(this) { errorData ->
+                binding.tvError.isVisible = errorData.first
+                errorData.second?.message?.let {
+                    binding.tvError.text = it
+                }
+            }
+            Toast.makeText(applicationContext,
+                "User deleted", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
+        }
+        builder.show()
     }
+
     companion object{
         var PHOTO_URL: String? = ""
     }
