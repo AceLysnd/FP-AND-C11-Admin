@@ -17,6 +17,9 @@
         android:theme="@style/Theme.C11Flight"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.EditUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.UserDetailActivity"
             android:exported="false" />
         <activity

@@ -76,6 +76,12 @@ class UserDetailActivity : AppCompatActivity() {
         binding.btnDelete.setOnClickListener{
             createDialog()
         }
+
+        binding.btnEditProfile.setOnClickListener {
+            intent = Intent(this, EditUserActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun createDialog() {

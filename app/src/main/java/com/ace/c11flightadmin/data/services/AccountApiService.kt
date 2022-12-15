@@ -1,12 +1,10 @@
 package com.ace.c11flightadmin.data.services
 
-import com.ace.c11flightadmin.data.model.AccountResponse
-import com.ace.c11flightadmin.data.model.LoginInfo
-import com.ace.c11flightadmin.data.model.UserInfo
-import com.ace.c11flightadmin.data.model.UserResponse
+import com.ace.c11flightadmin.data.model.*
 import com.ace.c11flightadmin.data.services.ServiceBuilder.BASE_URL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -33,6 +31,12 @@ interface AccountApiService {
     @DELETE("users/{id}")
     suspend fun deleteUserById(
         @Path("id") id: Int,
+    ): AccountResponse
+
+    @PUT("users/{id}")
+    suspend fun updateUserById(
+        @Path("id") id: Int,
+        @Body data: RequestBody
     ): AccountResponse
 
     companion object{
