@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
 import com.ace.c11flightadmin.R
 import com.ace.c11flightadmin.databinding.ActivityHomeBinding
 import com.ace.c11flightadmin.ui.viewmodel.HomeActivityViewModel
@@ -29,19 +30,20 @@ class HomeActivity : AppCompatActivity() {
         isLoginInfoValid()
         setOnClickListeners()
         setUsername()
+        setBottomNav()
     }
 
     private fun setUsername() {
         viewModel.getAccountPrefs().observe(this){
-            binding.tvUsername.text = it.username
+//            binding.tvUsername.text = it.username
         }
     }
 
     private fun isLoginInfoValid() {
         viewModel.getLoginStatus().observe(this) {
             if (it) {
-                binding.hi.visibility = View.VISIBLE
-                binding.tvUsername.visibility = View.VISIBLE
+//                binding.hi.visibility = View.VISIBLE
+//                binding.tvUsername.visibility = View.VISIBLE
                 binding.messageLogin.visibility = View.GONE
                 Toast.makeText(this, "Login Verified", Toast.LENGTH_SHORT).show()
             }
@@ -77,4 +79,23 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun setBottomNav() {
+        val usersFragment = UsersFragment()
+        val ticketFragment = TicketFragment()
+        setCurrentFragment(usersFragment)
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.users -> setCurrentFragment(usersFragment)
+                R.id.tickets -> setCurrentFragment(ticketFragment)
+            }
+            true
+        }
+    }
+
+    private fun setCurrentFragment(fragment: Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment,fragment)
+            commit()
+        }
 }

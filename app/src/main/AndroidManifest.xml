@@ -23,13 +23,6 @@
             android:name=".ui.view.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.ResetPassword"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.view.HomeActivity"
             android:exported="true">
             <intent-filter>
@@ -40,9 +33,6 @@
         </activity>
         <activity
             android:name=".ui.view.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.view.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

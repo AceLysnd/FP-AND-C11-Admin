@@ -7,20 +7,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ApiHelper {
-    fun registerUser(userData: UserInfo, onResult: (UserInfo?) -> Unit){
-        val retrofit = ServiceBuilder.buildService(AccountApiService::class.java)
-        retrofit.registerUser(userData).enqueue(
-            object : Callback<UserInfo> {
-                override fun onFailure(call: Call<UserInfo>, t: Throwable) {
-                    onResult(null)
-                }
-                override fun onResponse( call: Call<UserInfo>, response: Response<UserInfo>) {
-                    val addedUser = response.body()
-                    onResult(addedUser)
-                }
-            }
-        )
-    }
 
     fun loginUser(loginData: LoginInfo, onResult: (LoginInfo?) -> Unit){
         val retrofit = ServiceBuilder.buildService(AccountApiService::class.java)
