@@ -20,6 +20,7 @@
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/drawable/ic_delete.xml" value="0.127" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_home.xml" value="0.18" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_login.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_user_detail.xml" value="0.33" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/fragment_ticket.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/fragment_users.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/item_users.xml" value="0.4094488188976378" />

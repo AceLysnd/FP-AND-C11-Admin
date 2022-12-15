@@ -27,7 +27,7 @@ data class Account(
     @SerializedName("phone")
     val phone: Any?,
     @SerializedName("photo")
-    val photo: Any?,
+    val photo: String?,
     @SerializedName("role")
     val role: String?,
     @SerializedName("token")

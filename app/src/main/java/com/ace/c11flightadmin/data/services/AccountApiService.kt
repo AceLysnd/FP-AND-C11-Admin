@@ -1,5 +1,6 @@
 package com.ace.c11flightadmin.data.services
 
+import com.ace.c11flightadmin.data.model.AccountResponse
 import com.ace.c11flightadmin.data.model.LoginInfo
 import com.ace.c11flightadmin.data.model.UserInfo
 import com.ace.c11flightadmin.data.model.UserResponse
@@ -9,19 +10,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 interface AccountApiService {
-
-
-    @POST("register")
-    fun registerUser(
-        @Body userData: UserInfo
-    ): Call<UserInfo>
 
     @POST("login")
     fun loginUser(
@@ -32,6 +24,11 @@ interface AccountApiService {
     @GET("users")
     suspend fun getUsers(
     ): UserResponse
+
+    @GET("users/{id}")
+    suspend fun getUserById(
+        @Path("id") id: Int,
+    ): AccountResponse
 
     companion object{
 

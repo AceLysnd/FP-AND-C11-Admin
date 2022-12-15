@@ -1,6 +1,7 @@
 package com.ace.c11flightadmin.ui.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ace.c11flightadmin.R
+import com.ace.c11flightadmin.data.model.Account
 import com.ace.c11flightadmin.databinding.FragmentUsersBinding
 import com.ace.c11flightadmin.ui.adapter.UserAdapter
 import com.ace.c11flightadmin.ui.viewmodel.UsersFragmentViewModel
@@ -49,8 +51,15 @@ class UsersFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        userAdapter = UserAdapter(mutableListOf())
+        userAdapter = UserAdapter(mutableListOf()) { user -> showUserDetails(user)}
         userList.adapter = userAdapter
+    }
+
+    private fun showUserDetails(user: Account) {
+        val intent = Intent(requireActivity(), UserDetailActivity::class.java)
+        USER_ID = user.id!!
+
+        startActivity(intent)
     }
 
     private fun observeData() {
@@ -72,5 +81,9 @@ class UsersFragment : Fragment() {
         viewModel.userResult.observe(viewLifecycleOwner) {
             userAdapter.setItems(it.data.users)
         }
+    }
+
+    companion object {
+        var USER_ID: Int = 0
     }
 }

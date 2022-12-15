@@ -11,7 +11,8 @@ import com.ace.c11flightadmin.data.model.User
 import com.ace.c11flightadmin.databinding.ItemUsersBinding
 
 class UserAdapter(
-    private var items: MutableList<Account>
+    private var items: MutableList<Account>,
+    private val onUserClick: (user: Account) -> Unit
 ) :
     RecyclerView.Adapter<UserAdapter.PostViewHolder>() {
 
@@ -41,7 +42,7 @@ class UserAdapter(
     override fun getItemCount(): Int = items.size
 
 
-    class PostViewHolder(private val binding: ItemUsersBinding) :
+    inner class PostViewHolder(private val binding: ItemUsersBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(item: Account) {
@@ -58,6 +59,8 @@ class UserAdapter(
 //                    transformations(CircleCropTransformation())
                 }
             }
+            itemView.setOnClickListener { onUserClick.invoke(item) }
+
         }
     }
 }

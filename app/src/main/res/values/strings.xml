@@ -63,4 +63,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="user_id">User Id</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
 </resources>
