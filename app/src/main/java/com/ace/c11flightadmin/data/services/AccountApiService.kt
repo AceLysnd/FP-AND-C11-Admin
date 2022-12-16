@@ -39,6 +39,15 @@ interface AccountApiService {
         @Body data: RequestBody
     ): AccountResponse
 
+    @GET("ticket")
+    suspend fun getTickets(
+    ): TicketListResponse
+
+    @GET("ticket/{id}")
+    suspend fun getTicketById(
+        @Path("id") id: Int,
+    ): TicketResponse
+
     companion object{
 
         @JvmStatic

@@ -66,4 +66,15 @@
     <string name="email">Email</string>
     <string name="phone">Phone</string>
     <string name="address">Address</string>
+    <string name="flight_id">Flight ID</string>
+    <string name="type">Type</string>
+    <string name="price">Price</string>
+    <string name="desc">Desc</string>
+    <string name="titikdua">:</string>
+    <string name="date">Date</string>
+    <string name="ticket_details">Ticket Details</string>
+    <string name="date_created">Date Created</string>
+    <string name="date_updated">Date Updated</string>
+    <string name="edit_ticket_info">Edit Ticket Info</string>
+    <string name="delete">Delete</string>
 </resources>

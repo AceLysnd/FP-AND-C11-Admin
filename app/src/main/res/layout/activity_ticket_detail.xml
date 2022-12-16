@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEF2FF"
+    tools:context=".ui.view.UserDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/ticket_details"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hlFlightId"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/flight_id"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/tvFlightId"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/flight_id"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlFlightId"
+            app:layout_constraintTop_toBottomOf="@+id/hlFlightId" />
+
+        <TextView
+            android:id="@+id/hlType"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFlightId" />
+
+        <TextView
+            android:id="@+id/tvType"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/type"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlType"
+            app:layout_constraintTop_toBottomOf="@+id/hlType" />
+
+        <TextView
+            android:id="@+id/hlPrice"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlPrice"
+            app:layout_constraintTop_toBottomOf="@+id/hlPrice" />
+
+        <TextView
+            android:id="@+id/hlDesc"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/desc"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/desc"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlDesc"
+            app:layout_constraintTop_toBottomOf="@+id/hlDesc" />
+
+        <TextView
+            android:id="@+id/hlDateCreated"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_created"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+        <TextView
+            android:id="@+id/tvDateCreated"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/phone"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlDateCreated"
+            app:layout_constraintTop_toBottomOf="@+id/hlDateCreated" />
+
+        <TextView
+            android:id="@+id/hlDateUpdated"
+            style="@style/HeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_updated"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateCreated" />
+
+        <TextView
+            android:id="@+id/tvDateUpdated"
+            style="@style/Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/date_updated"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/hlDateUpdated"
+            app:layout_constraintTop_toBottomOf="@+id/hlDateUpdated" />
+
+
+        <Button
+            android:id="@+id/btn_edit_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/edit_ticket_info"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateUpdated" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_edit_ticket"
+            app:layout_constraintStart_toStartOf="@+id/btn_edit_ticket"
+            app:layout_constraintTop_toBottomOf="@+id/btn_edit_ticket" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="No Result data found" />
+
+        <ProgressBar
+            android:id="@+id/pb_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
