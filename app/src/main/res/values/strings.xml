@@ -77,4 +77,7 @@
     <string name="date_updated">Date Updated</string>
     <string name="edit_ticket_info">Edit Ticket Info</string>
     <string name="delete">Delete</string>
+    <string name="create">Create</string>
+    <string name="ticket">Ticket</string>
+    <string name="create_ticket">Create Ticket</string>
 </resources>

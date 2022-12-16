@@ -88,6 +88,7 @@ class HomeActivity : AppCompatActivity() {
     private fun setBottomNav() {
         val usersFragment = UsersFragment()
         val ticketFragment = TicketFragment()
+        val createFragment = CreateFragment()
         setCurrentFragment(usersFragment)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -98,6 +99,7 @@ class HomeActivity : AppCompatActivity() {
                     finish()
                 }
                 R.id.tickets -> setCurrentFragment(ticketFragment)
+                R.id.create -> setCurrentFragment(createFragment)
             }
             true
         }

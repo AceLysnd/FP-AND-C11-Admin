@@ -13,9 +13,9 @@
       tools:ignore="HardcodedText,MenuTitle" />
   <item
       tools:ignore="HardcodedText,MenuTitle,UnusedAttribute"
-      android:id="@+id/more"
-      android:icon="@drawable/ic_more"
-      android:title="More"/>
+      android:id="@+id/create"
+      android:icon="@drawable/ic_add"
+      android:title="Create"/>
 
 
 

@@ -59,6 +59,11 @@ interface AccountApiService {
         @Path("id") id: Int,
     ): TicketResponse
 
+    @POST("ticket")
+    suspend fun createTicket(
+        @Body data: RequestBody
+    ): TicketResponse
+
     companion object{
 
         @JvmStatic
