@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333874770127",
+    "project_id": "c11flightadmin",
+    "storage_bucket": "c11flightadmin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333874770127:android:a4b3cdf85586fc5d8507ba",
+        "android_client_info": {
+          "package_name": "com.ace.c11flightadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333874770127-sfag69mveu96qcv98ajimket6o366deb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq_Bimg2ogNweNAmvRiKhigF-RWEuPWu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333874770127-sfag69mveu96qcv98ajimket6o366deb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

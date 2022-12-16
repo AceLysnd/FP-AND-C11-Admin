@@ -9,10 +9,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import coil.imageLoader
 import com.ace.c11flightadmin.R
 import com.ace.c11flightadmin.databinding.ActivityHomeBinding
 import com.ace.c11flightadmin.ui.viewmodel.HomeActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.MainScope
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
@@ -31,8 +33,13 @@ class HomeActivity : AppCompatActivity() {
         setOnClickListeners()
         setUsername()
         setBottomNav()
-    }
+        binding.btnCristalitik.setOnClickListener {
+            val intent = Intent(this, MainScope()::class.java)
+            startActivity(intent)
+            finish()
 
+        }
+    }
     private fun setUsername() {
         viewModel.getAccountPrefs().observe(this){
 //            binding.tvUsername.text = it.username
