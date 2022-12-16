@@ -48,6 +48,17 @@ interface AccountApiService {
         @Path("id") id: Int,
     ): TicketResponse
 
+    @PUT("ticket/{id}")
+    suspend fun updateTicketById(
+        @Path("id") id: Int,
+        @Body data: RequestBody
+    ): TicketResponse
+
+    @DELETE("ticket/{id}")
+    suspend fun deleteTicketById(
+        @Path("id") id: Int,
+    ): TicketResponse
+
     companion object{
 
         @JvmStatic

@@ -45,12 +45,12 @@ class TicketDetailViewModel  : ViewModel() {
             }
         }
     }
-    fun deleteUser() {
+    fun deleteTicket() {
         loadingState.postValue(true)
         errorState.postValue(Pair(false, null))
         viewModelScope.launch {
             try {
-                apiService.deleteUserById(USER_ID)
+                apiService.deleteTicketById(TICKET_ID)
                 viewModelScope.launch {
                     loadingState.postValue(false)
                     errorState.postValue(Pair(false,null))

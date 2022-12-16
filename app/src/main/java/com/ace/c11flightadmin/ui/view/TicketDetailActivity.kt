@@ -62,7 +62,7 @@ class TicketDetailActivity : AppCompatActivity() {
         }
 
         binding.btnEditTicket.setOnClickListener {
-            intent = Intent(this, EditUserActivity::class.java)
+            intent = Intent(this, EditTicketActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -76,7 +76,7 @@ class TicketDetailActivity : AppCompatActivity() {
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
 
-//            viewModel.deleteUser()
+            viewModel.deleteTicket()
             viewModel.loadingState.observe(this) { isLoading ->
                 binding.pbPost.isVisible = isLoading
             }
