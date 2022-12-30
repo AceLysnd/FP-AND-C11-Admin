@@ -26,11 +26,12 @@
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_login.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_profile.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_ticket_detail.xml" value="0.18" />
-        <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_user_detail.xml" value="0.31907308377896615" />
+        <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/activity_user_detail.xml" value="0.22" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/fragment_create.xml" value="0.22" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/fragment_ticket.xml" value="0.22" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/fragment_users.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/item_ticket.xml" value="0.33" />
+        <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/item_transactions.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/layout/item_users.xml" value="0.4094488188976378" />
         <entry key="..\:/Users/ilham/AndroidStudioProjects/C11FlightAdmin/app/src/main/res/menu/bottom_menu.xml" value="0.22083333333333333" />
       </map>

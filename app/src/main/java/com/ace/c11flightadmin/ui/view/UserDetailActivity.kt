@@ -7,13 +7,21 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ace.c11flightadmin.R
 import com.ace.c11flightadmin.databinding.ActivityUserDetailBinding
+import com.ace.c11flightadmin.ui.adapter.TransactionHistoryAdapter
+import com.ace.c11flightadmin.ui.view.UsersFragment.Companion.USER_ID
 import com.ace.c11flightadmin.ui.viewmodel.UserDetailViewModel
 import com.bumptech.glide.Glide
 
 class UserDetailActivity : AppCompatActivity() {
     private var _binding: ActivityUserDetailBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var transactionAdapter: TransactionHistoryAdapter
+    private lateinit var transactionList: RecyclerView
 
     private val viewModel: UserDetailViewModel by viewModels()
 
@@ -22,9 +30,46 @@ class UserDetailActivity : AppCompatActivity() {
         _binding = ActivityUserDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        transactionList = this.findViewById(R.id.rv_transaction)
+        transactionList.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.VERTICAL, false
+        )
+
         setUserId()
         setUserInfo()
         setOnclickListeners()
+
+        setAdapter()
+        observeData()
+    }
+
+    private fun setAdapter() {
+        transactionAdapter = TransactionHistoryAdapter(arrayListOf(), arrayListOf()) {
+//                ticket -> goToOrderDetails(ticket)
+        }
+        transactionList.adapter = transactionAdapter
+    }
+
+    private fun observeData() {
+
+        viewModel.getTransactions()
+
+//        viewModel.loadingState.observe(this) { isLoading ->
+//            binding.pbPost.isVisible = isLoading
+//            binding.rvTransaction.isVisible = !isLoading
+//        }
+//
+//        viewModel.errorState.observe(this) { errorData ->
+//            binding.tvError.isVisible = errorData.first
+//            errorData.second?.message?.let {
+//                binding.tvError.text = it
+//            }
+//        }
+
+        viewModel.transactionResult.observe(this) {
+            transactionAdapter.filter.filter(USER_ID.toString())
+            transactionAdapter.addItem(it.data)
+        }
     }
 
     private fun setUserId() {
@@ -51,25 +96,9 @@ class UserDetailActivity : AppCompatActivity() {
             binding.tvLastName.text = it.data?.lastName.toString()
             binding.tvAddress.text = it.data?.address.toString()
             binding.tvPhone.text = it.data?.phone.toString()
-//            PHOTO_URL = it.data?.photo
 
             val photoUrl = it.data?.photo?.replace("http","https")
             Glide.with(binding.imgProfile.context).load(photoUrl).into(binding.imgProfile)
-            //Unfixed
-//            if (it.data?.photo != null) {
-//                Glide.with(this)
-//                    .load("$PHOTO_URL")
-//                    .placeholder(R.drawable.ic_baseline_account_box_24)
-//                    .centerCrop()
-//                    .into(binding.imgProfile)
-
-
-//                binding.imgProfile.load(photoUrl) {
-//                    crossfade(true)
-//                    placeholder(R.drawable.ic_baseline_account_box_24)
-//                    transformations(RoundedCornersTransformation(10F))
-//                }
-//            }
         }
 
     }

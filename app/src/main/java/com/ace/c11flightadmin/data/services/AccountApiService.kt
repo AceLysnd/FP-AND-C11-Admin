@@ -64,6 +64,10 @@ interface AccountApiService {
         @Body data: RequestBody
     ): TicketResponse
 
+    @GET("transaction")
+    suspend fun getTransactionList(
+    ): TransactionListResponse
+
     companion object{
 
         @JvmStatic
