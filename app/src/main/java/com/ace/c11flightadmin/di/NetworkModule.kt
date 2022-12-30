@@ -31,7 +31,7 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient
     ): Retrofit {
-        val BASE_URL = "https://beckend-takeoff-production.up.railway.app/api/v1/"
+        val BASE_URL = "https://beckend-takeoff-production-46fc.up.railway.app/api/v1/"
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

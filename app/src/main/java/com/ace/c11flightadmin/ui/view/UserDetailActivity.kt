@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.ace.c11flightadmin.R
 import com.ace.c11flightadmin.databinding.ActivityUserDetailBinding
 import com.ace.c11flightadmin.ui.viewmodel.UserDetailViewModel
 import com.bumptech.glide.Glide
@@ -36,6 +35,7 @@ class UserDetailActivity : AppCompatActivity() {
         viewModel.getUserData()
         viewModel.loadingState.observe(this) { isLoading ->
             binding.pbPost.isVisible = isLoading
+            binding.profileDetail.isVisible = !isLoading
         }
 
         viewModel.errorState.observe(this) { errorData ->
@@ -51,15 +51,17 @@ class UserDetailActivity : AppCompatActivity() {
             binding.tvLastName.text = it.data?.lastName.toString()
             binding.tvAddress.text = it.data?.address.toString()
             binding.tvPhone.text = it.data?.phone.toString()
-            PHOTO_URL = it.data?.photo
+//            PHOTO_URL = it.data?.photo
 
+            val photoUrl = it.data?.photo?.replace("http","https")
+            Glide.with(binding.imgProfile.context).load(photoUrl).into(binding.imgProfile)
             //Unfixed
-            if (it.data?.photo != null) {
-                Glide.with(this)
-                    .load("$PHOTO_URL")
-                    .placeholder(R.drawable.ic_baseline_account_box_24)
-                    .centerCrop()
-                    .into(binding.imgProfile)
+//            if (it.data?.photo != null) {
+//                Glide.with(this)
+//                    .load("$PHOTO_URL")
+//                    .placeholder(R.drawable.ic_baseline_account_box_24)
+//                    .centerCrop()
+//                    .into(binding.imgProfile)
 
 
 //                binding.imgProfile.load(photoUrl) {
@@ -67,7 +69,7 @@ class UserDetailActivity : AppCompatActivity() {
 //                    placeholder(R.drawable.ic_baseline_account_box_24)
 //                    transformations(RoundedCornersTransformation(10F))
 //                }
-            }
+//            }
         }
 
     }

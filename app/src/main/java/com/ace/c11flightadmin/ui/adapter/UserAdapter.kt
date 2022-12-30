@@ -9,6 +9,7 @@ import com.ace.c11flightadmin.R
 import com.ace.c11flightadmin.data.model.Account
 import com.ace.c11flightadmin.data.model.User
 import com.ace.c11flightadmin.databinding.ItemUsersBinding
+import com.bumptech.glide.Glide
 
 class UserAdapter(
     private var items: MutableList<Account>,
@@ -53,10 +54,11 @@ class UserAdapter(
             binding.tvId.text = item.id.toString()
 
             if (item.photo != null) {
-                binding.ivUser.load(item.photo.toString()) {
-                    crossfade(true)
-//                    placeholder(R.drawable.ic_baseline_account_box_24)
-//                    transformations(CircleCropTransformation())
+                if (item.photo.contains("https")){
+                    Glide.with(binding.ivUser.context).load(item.photo).into(binding.ivUser)
+                } else {
+                    val photoUrl = item.photo.replace("http","https")
+                    Glide.with(binding.ivUser.context).load(photoUrl).into(binding.ivUser)
                 }
             }
             itemView.setOnClickListener { onUserClick.invoke(item) }
