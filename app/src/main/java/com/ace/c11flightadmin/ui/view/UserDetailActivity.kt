@@ -100,7 +100,6 @@ class UserDetailActivity : AppCompatActivity() {
             val photoUrl = it.data?.photo?.replace("http","https")
             Glide.with(binding.imgProfile.context).load(photoUrl).into(binding.imgProfile)
         }
-
     }
 
     private fun setOnclickListeners() {

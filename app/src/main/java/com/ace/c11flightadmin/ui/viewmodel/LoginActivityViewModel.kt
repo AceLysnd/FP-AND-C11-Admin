@@ -22,9 +22,9 @@ class LoginActivityViewModel @Inject constructor(private val repository: LocalRe
         }
     }
 
-    fun setAccount(username: String, email: String, password: String) {
+    fun setAccount(username: String, email: String, password: String,token: String) {
         viewModelScope.launch {
-            repository.setAccount(username, email, password)
+            repository.setAccount(username, email, password, token)
         }
     }
 

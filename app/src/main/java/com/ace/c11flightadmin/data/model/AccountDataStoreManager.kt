@@ -13,11 +13,12 @@ import javax.inject.Inject
 
 class AccountDataStoreManager @Inject constructor(@ActivityContext private val context: Context) {
 
-    suspend fun setAccount(username: String, email: String, password: String) {
+    suspend fun setAccount(username: String, email: String, password: String, token: String) {
         context.accountDataStore.edit { preferences ->
             preferences[ACCOUNT_USERNAME] = username
             preferences[ACCOUNT_EMAIL] = email
             preferences[ACCOUNT_PASSWORD] = password
+            preferences[ACCOUNT_TOKEN] = token
         }
     }
     suspend fun setLoginStatus(loginStatus: Boolean) {
@@ -39,7 +40,8 @@ class AccountDataStoreManager @Inject constructor(@ActivityContext private val c
                 preferences[ACCOUNT_EMAIL] ?: "",
                 preferences[ACCOUNT_PASSWORD] ?: "",
                 preferences[LOGGED_IN_STATUS] ?: false,
-                preferences[ACCOUNT_PROFILE_PICTURE] ?: ""
+                preferences[ACCOUNT_PROFILE_PICTURE] ?: "",
+                preferences[ACCOUNT_TOKEN] ?: ""
             )
         }
     }
@@ -75,6 +77,8 @@ class AccountDataStoreManager @Inject constructor(@ActivityContext private val c
         private val ACCOUNT_PROFILE_PICTURE = stringPreferencesKey("account_profile_picture")
 
         private val ACCOUNT_ID = longPreferencesKey("account_id")
+
+        private val ACCOUNT_TOKEN = stringPreferencesKey("account_token")
 
         private val LOGGED_IN_STATUS = booleanPreferencesKey("logged_in_status")
 

@@ -2,6 +2,7 @@ package com.ace.c11flightadmin.data.services
 
 import com.ace.c11flightadmin.data.model.*
 import com.ace.c11flightadmin.data.services.ServiceBuilder.BASE_URL
+import com.ace.c11flightadmin.ui.view.HomeActivity.Companion.TOKEN
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -21,22 +22,26 @@ interface AccountApiService {
     @Headers("Content-Type: application/json")
     @GET("users")
     suspend fun getUsers(
+        @Header("Authorization") authorization: String = TOKEN
     ): UserResponse
 
     @GET("users/{id}")
     suspend fun getUserById(
         @Path("id") id: Int,
+        @Header("Authorization") authorization: String = TOKEN
     ): AccountResponse
 
     @DELETE("users/{id}")
     suspend fun deleteUserById(
         @Path("id") id: Int,
+        @Header("Authorization") authorization: String = TOKEN
     ): AccountResponse
 
     @PUT("users/{id}")
     suspend fun updateUserById(
         @Path("id") id: Int,
-        @Body data: RequestBody
+        @Body data: RequestBody,
+        @Header("Authorization") authorization: String = TOKEN
     ): AccountResponse
 
     @GET("ticket")
@@ -51,21 +56,25 @@ interface AccountApiService {
     @PUT("ticket/{id}")
     suspend fun updateTicketById(
         @Path("id") id: Int,
-        @Body data: RequestBody
+        @Body data: RequestBody,
+        @Header("Authorization") authorization: String = TOKEN
     ): TicketResponse
 
     @DELETE("ticket/{id}")
     suspend fun deleteTicketById(
         @Path("id") id: Int,
+        @Header("Authorization") authorization: String = TOKEN
     ): TicketResponse
 
     @POST("ticket")
     suspend fun createTicket(
-        @Body data: RequestBody
+        @Body data: RequestBody,
+        @Header("Authorization") authorization: String = TOKEN
     ): TicketResponse
 
     @GET("transaction")
     suspend fun getTransactionList(
+        @Header("Authorization") authorization: String = TOKEN
     ): TransactionListResponse
 
     companion object{

@@ -41,7 +41,8 @@ class LoginActivity : AppCompatActivity() {
                 id = null,
                 username = "",
                 email = binding.etUsername.text.toString(),
-                password = binding.etPassword.text.toString()
+                password = binding.etPassword.text.toString(),
+                token = ""
             )
 
             apiService.loginUser(loginInfo) {
@@ -51,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                         it.username.toString(),
                         it.email.toString(),
                         it.password.toString(),
+                        it.token.toString(),
                         loginStatus = true
                     )
                     goToHome()
@@ -82,9 +84,10 @@ class LoginActivity : AppCompatActivity() {
         username: String,
         email: String,
         password: String,
+        token: String,
         loginStatus: Boolean
     ) {
-        viewModel.setAccount(username, email, password)
+        viewModel.setAccount(username, email, password, token)
         viewModel.saveLoginStatus(loginStatus)
     }
 

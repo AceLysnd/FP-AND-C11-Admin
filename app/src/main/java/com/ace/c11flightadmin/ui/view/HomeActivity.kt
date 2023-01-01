@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
     }
     private fun setUsername() {
         viewModel.getAccountPrefs().observe(this){
-//            binding.tvUsername.text = it.username
+            TOKEN = it.token
         }
     }
 
@@ -110,4 +110,8 @@ class HomeActivity : AppCompatActivity() {
             replace(R.id.flFragment,fragment)
             commit()
         }
+
+    companion object {
+        var TOKEN = ""
+    }
 }
