@@ -96,9 +96,10 @@ class UserDetailActivity : AppCompatActivity() {
             binding.tvLastName.text = it.data?.lastName.toString()
             binding.tvAddress.text = it.data?.address.toString()
             binding.tvPhone.text = it.data?.phone.toString()
-
-            val photoUrl = it.data?.photo?.replace("http","https")
-            Glide.with(binding.imgProfile.context).load(photoUrl).into(binding.imgProfile)
+            if (it.data?.photo != null){
+                val photoUrl = it.data.photo.replace("http","https")
+                Glide.with(binding.imgProfile.context).load(photoUrl).into(binding.imgProfile)
+            }
         }
     }
 

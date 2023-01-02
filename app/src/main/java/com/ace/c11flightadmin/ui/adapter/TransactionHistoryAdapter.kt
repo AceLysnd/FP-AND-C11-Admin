@@ -48,10 +48,7 @@ class TransactionHistoryAdapter (
             binding.tvType.text = results.ticket?.type.toString()
             binding.tvPrice.text = "Rp. " + results.total.toString()
             binding.tvPromo.text = results.promo?.name
-//            binding.tvToCode.text = results.ticket?.flight?.to?.cityCode
-//            binding.tvToDesc.text = results.ticket?.flight?.to?.city
-//            binding.tvFromCode.text = results.ticket?.flight?.from?.cityCode
-//            binding.tvFromDesc.text = results.ticket?.flight?.from?.city
+            binding.tvFlightDetail.text = results.ticket?.desc
             binding.tvTransactionTime.text = results.createdAt
             binding.tvTransId.text = "#" + results.id.toString()
 
